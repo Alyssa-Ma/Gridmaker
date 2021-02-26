@@ -4,22 +4,35 @@ let colorSelected;
 
 //Adds a row
 function addRow(){
+    numRows++;
+    
     let row = document.createElement("Tr"); //creates row
     row.classList.add("R");
-    let cell = document.createElement("Td"); //creates the first cell
-    cell.classList.add("C");
 
-    row.appendChild(cell);
+    
+
+    for(let i = 0; i < numCols + 1; i++){
+        let cell = document.createElement("Td"); //creates the first cell
+        cell.classList.add("C");
+        row.appendChild(cell);
+        console.log(numCols);
+    }
+
     document.getElementById("grid").appendChild(row);   //adds it to grid
-    numRows++;
+    
 }    
 
 
 //Adds a column
 function addColumn(){
-   
+    let row = document.getElementsByClassName("R");
 
-    alert("Clicked Add Col");
+    for(let i = 0; i < numRows + 1; i++){
+        let col = document.createElement("Td"); 
+        col.classList.add("C");
+        row[i].appendChild(col);
+    }
+    numCols++;
 }
 
 //Removes a row
