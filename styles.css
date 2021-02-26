@@ -1,0 +1,8 @@
+tr,td{
+    border: 1px solid black;
+}
+
+td{
+    padding: 50px;
+    background-color: white;
+}
