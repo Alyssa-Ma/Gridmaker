@@ -60,7 +60,7 @@ function removeColumn(){
 
 //Sets global var for selected color
 function selected(){
-    colorSelected = document.ggetElementById("selectedID").value;
+    colorSelected = document.getElementById("selectedID").value;
     console.log(colorSelected);
 }
 
