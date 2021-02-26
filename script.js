@@ -4,12 +4,15 @@ let colorSelected;
 
 //Adds a row
 function addRow(){
+    
     numRows++;
     
     let row = document.createElement("Tr"); //creates row
     row.classList.add("R");
 
-    
+    if(numCols === 0){  //incase there are no columns
+        numCols++;
+    }
 
     for(let i = 0; i < numCols; i++){
         let cell = document.createElement("Td"); //creates the first cell
@@ -18,36 +21,31 @@ function addRow(){
         console.log(numCols);
     }
 
-    document.getElementById("grid").appendChild(row);   //adds it to grid
+    document.getElementById("grid").appendChild(row);   //adds row to grid
     
 }    
 
 
 //Adds a column
 function addColumn(){
+    
     numCols++;
+    let row;
 
-    let row = document.getElementsByClassName("R");
-
-    if(numRows !== 0){
-        for(let i = 0; i < numRows; i++){
-            let col = document.createElement("Td"); 
-            col.classList.add("C");
-            row[i].appendChild(col);
-        }
-    }
-
-    else{
-        let row = document.createElement("Tr"); //creates row
-        row.classList.add("R");
-        let cell = document.createElement("Td"); //creates the first cell
-        cell.classList.add("C");
-        row.appendChild(cell);
-        document.getElementById("grid").appendChild(row);   //adds it to grid
+    if(numRows === 0){  //incase there is no rows we create the first row and add it to grid
         numRows++;
+        row = document.createElement("Tr");
+        row.classList.add("R");
+        document.getElementById("grid").appendChild(row);   
     }
-    
-    
+
+    row = document.getElementsByClassName("R"); //gets all rows
+
+    for(let i = 0; i < numRows; i++){   //loops through all rows and adds a column
+        let col = document.createElement("Td"); 
+        col.classList.add("C");
+        row[i].appendChild(col);
+    }   
 }
 
 //Removes a row
