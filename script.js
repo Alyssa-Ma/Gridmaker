@@ -50,7 +50,20 @@ function addColumn(){
 
 //Removes a row
 function removeRow(){
-    alert("Clicked Remove Row");
+
+  
+    if(numRows > 0)
+    {
+        if(numRows == 1){
+            numCols = 0;
+        }
+        numRows--;
+        let grid = document.getElementById("grid");
+        let row = grid.lastElementChild;
+        grid.removeChild(row);
+    }
+    
+
 }
 
 //Remove a column
