@@ -4,35 +4,48 @@ let colorSelected;
 
 //Adds a row
 function addRow(){
+    
     numRows++;
     
     let row = document.createElement("Tr"); //creates row
     row.classList.add("R");
 
-    
+    if(numCols === 0){  //incase there are no columns
+        numCols++;
+    }
 
-    for(let i = 0; i < numCols + 1; i++){
+    for(let i = 0; i < numCols; i++){
         let cell = document.createElement("Td"); //creates the first cell
         cell.classList.add("C");
         row.appendChild(cell);
         console.log(numCols);
     }
 
-    document.getElementById("grid").appendChild(row);   //adds it to grid
+    document.getElementById("grid").appendChild(row);   //adds row to grid
     
 }    
 
 
 //Adds a column
 function addColumn(){
-    let row = document.getElementsByClassName("R");
+    
+    numCols++;
+    let row;
 
-    for(let i = 0; i < numRows; i++){
+    if(numRows === 0){  //incase there is no rows we create the first row and add it to grid
+        numRows++;
+        row = document.createElement("Tr");
+        row.classList.add("R");
+        document.getElementById("grid").appendChild(row);   
+    }
+
+    row = document.getElementsByClassName("R"); //gets all rows
+
+    for(let i = 0; i < numRows; i++){   //loops through all rows and adds a column
         let col = document.createElement("Td"); 
         col.classList.add("C");
         row[i].appendChild(col);
-    }
-    numCols++;
+    }   
 }
 
 //Removes a row
@@ -47,7 +60,7 @@ function removeColumn(){
 
 //Sets global var for selected color
 function selected(){
-    colorSelected = document.ggetElementById("selectedID").value;
+    colorSelected = document.getElementById("selectedID").value;
     console.log(colorSelected);
 }
 
