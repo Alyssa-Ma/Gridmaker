@@ -27,7 +27,7 @@ function addRow(){
 function addColumn(){
     let row = document.getElementsByClassName("R");
 
-    for(let i = 0; i < numRows + 1; i++){
+    for(let i = 0; i < numRows; i++){
         let col = document.createElement("Td"); 
         col.classList.add("C");
         row[i].appendChild(col);
