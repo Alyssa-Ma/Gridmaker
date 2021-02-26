@@ -11,7 +11,7 @@ function addRow(){
 
     
 
-    for(let i = 0; i < numCols + 1; i++){
+    for(let i = 0; i < numCols; i++){
         let cell = document.createElement("Td"); //creates the first cell
         cell.classList.add("C");
         row.appendChild(cell);
@@ -25,14 +25,29 @@ function addRow(){
 
 //Adds a column
 function addColumn(){
+    numCols++;
+
     let row = document.getElementsByClassName("R");
 
-    for(let i = 0; i < numRows; i++){
-        let col = document.createElement("Td"); 
-        col.classList.add("C");
-        row[i].appendChild(col);
+    if(numRows !== 0){
+        for(let i = 0; i < numRows; i++){
+            let col = document.createElement("Td"); 
+            col.classList.add("C");
+            row[i].appendChild(col);
+        }
     }
-    numCols++;
+
+    else{
+        let row = document.createElement("Tr"); //creates row
+        row.classList.add("R");
+        let cell = document.createElement("Td"); //creates the first cell
+        cell.classList.add("C");
+        row.appendChild(cell);
+        document.getElementById("grid").appendChild(row);   //adds it to grid
+        numRows++;
+    }
+    
+    
 }
 
 //Removes a row
