@@ -50,7 +50,18 @@ function addColumn(){
 
 //Removes a row
 function removeRow(){
-    alert("Clicked Remove Row");
+  
+    if(numRows > 0) //prevents from deleting when there are no rows
+    {
+        if(numRows == 1){   //when graph is completely deleted reset numCols
+            numCols = 0;
+        }
+        numRows--;
+        let grid = document.getElementById("grid");
+        let row = grid.lastElementChild;    //get last row of grid
+        grid.removeChild(row);  //remove the element
+    }
+   
 }
 
 //Remove a column
