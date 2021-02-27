@@ -66,7 +66,35 @@ function removeRow(){
 
 //Remove a column
 function removeColumn(){
-    alert("Clicked Add Col");
+    
+    let row;
+    
+
+    if(numCols == 1){   //special case when at last column
+        
+        let grid = document.getElementById("grid");
+
+        for(let i = 0; i < numRows; i++){   //go through all rows and delete them
+            let row = grid.lastElementChild;
+            grid.removeChild(row);
+        }
+
+        numRows = 0;
+        numCols--;
+    }
+
+    if(numCols > 0){
+        numCols--;
+        row = document.getElementsByClassName("R"); //gets all rows
+        
+        for(let i = 0; i < numRows; i++){   //loops through all rows and removes a column
+            let col = row[i].lastElementChild
+            row[i].removeChild(col);
+        }   
+
+    }
+    
+    
 }
 
 //Sets global var for selected color
