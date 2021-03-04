@@ -137,7 +137,15 @@ function fill(){
 
 //fills all uncolored cells
 function fillU(){
-    alert("fillU");
+    let row = document.getElementsByTagName("Tr");  // grab row element
+    for(const element of row) {     // in each "tr" element
+        let col = element.getElementsByTagName("Td");   // grab column element
+        for(let i = 0; i < numCols; i++) {  // iterate through each column
+            if(col[i].style.background == "") {     // if the background of the column tags is empty
+                col[i].style.background = colorSelected;    // set the background color of the cell to the selected color
+            }
+        }
+    }
 }
 
 //Clears color of all cells
