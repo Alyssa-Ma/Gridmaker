@@ -156,7 +156,13 @@ function fillU(){
 
 //Clears color of all cells
 function clearAll(){
-    alert("clearAll");
+    let row = document.getElementsByTagName("Tr");  // grab row element
+    for(const element of row) {     // in each "tr" element
+        let col = element.getElementsByTagName("Td");   // grab column element
+        for(let i = 0; i < numCols; i++) {       // iterate through each column
+            col[i].style.background = "";   // setting each column cell to clear color
+        }
+    }
 }
 
 //for hexcolor
