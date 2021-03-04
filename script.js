@@ -103,6 +103,33 @@ function selected(){
     console.log(colorSelected);
 }
 
+//event listener for moving mouse over grid in case of click
+document.getElementById("grid").addEventListener("mouseover", colorCell);
+
+//color in cell
+function colorCell()
+{
+    //set row to tr
+    let rows = document.getElementsByTagName("Tr");
+    //for each element of the row
+    for(const element of rows)
+    {
+        //set col to td
+        let cols = element.getElementsByTagName("Td");
+        //loop through the cols
+        for(let i = 0; i < numCols; i++)
+        {
+            //single cell of a column
+            let cell = cols[i];
+            //if the cell is clicked, color in the cell with the current color selected
+            cell.onclick = function(colorCell)
+            {
+                cell.style.background = colorSelected;
+            }
+        }
+    }
+}
+
 //fills cell clicked with color
 function fill(){
     alert("fill");
@@ -118,3 +145,11 @@ function clearAll(){
     alert("clearAll");
 }
 
+//for hexcolor
+function getInput()
+{
+    //set color to hex value
+    colorSelected = document.getElementById("ColorInput").value;
+    //testing
+    console.log(colorSelected);
+}
