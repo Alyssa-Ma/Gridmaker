@@ -130,9 +130,15 @@ function colorCell()
     }
 }
 
-//fills cell clicked with color
+//fills all cells with selected color
 function fill(){
-    alert("fill");
+    let row = document.getElementsByTagName("Tr");  // grab row element
+    for(const element of row) {     // in each "tr" element
+        let col = element.getElementsByTagName("Td");   // grab column element
+        for(let i = 0; i < numCols; i++) {       // iterate through each column
+            col[i].style.background = colorSelected;   // setting each column cell to the selected color
+        }
+    }
 }
 
 //fills all uncolored cells
